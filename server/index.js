@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 8080;
 const startServer=()=>{
     try{
         connectDB(process.env.MONGODB_URL);
-        app.listen(PORT, ()=>{
+        app.listen(PORT, '0.0.0.0', ()=>{
             console.log('Server has started on port http://localhost:8080');
         })
     }
