@@ -28,10 +28,16 @@ const CreatePost = () => {
           body: JSON.stringify({prompt: form.prompt}),
         })
 
-        const data = await response.json();
-        const imageUrl = data.imageUrl;
+        if (response.status === 500) {
+          alert('This request has been blocked by our content filters, please try a different prompt');
+        } else {
+          const data = await response.json();
+          const imageUrl = data.imageUrl;
 
-        setForm({...form, photo: imageUrl})
+          setForm({ ...form, photo: imageUrl });
+        }
+
+        
       }
       catch(error){
         alert(error);
