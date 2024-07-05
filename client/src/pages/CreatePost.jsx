@@ -29,7 +29,7 @@ const CreatePost = () => {
         })
 
         if (response.status === 500) {
-          alert('This request has been blocked by our content filters, please try a different prompt');
+          alert('This request has been blocked by our content filters. Please try a different prompt.');
         } else {
           const data = await response.json();
           const imageUrl = data.imageUrl;
